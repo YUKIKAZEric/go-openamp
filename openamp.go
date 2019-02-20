@@ -96,6 +96,13 @@ func RecvMsg(rfFd *os.File, recvFunc func(chl uint16, payload []byte)) {
 			binary.Read(r, binary.LittleEndian, &msg.reserve)
 			binary.Read(r, binary.LittleEndian, &msg.msgid)
 			binary.Read(r, binary.LittleEndian, &msg.payloadlen)
+
+			//check length
+			if msg.payloadlen > 4096 {
+				msg = nil
+				continue
+			}
+
 			c := b[p+HEADLEN:]
 			if len(c) <= int(msg.payloadlen) {
 				msg.payload = c
