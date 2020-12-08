@@ -175,3 +175,7 @@ func SendMsg(rfFd *os.File, chl uint16, payload []byte) {
 
 	log.Printf("rf: %d bytes forwarded\n", len(sendBytes))
 }
+
+func Test(){
+	print("test go mod amp")
+}
