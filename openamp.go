@@ -1,4 +1,4 @@
-package openamp
+package github.com/YUKIKAZEric/go-openamp
 
 import (
 	"bytes"
